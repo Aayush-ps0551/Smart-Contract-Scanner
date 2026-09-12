@@ -1,0 +1,443 @@
+{
+  "success": true,
+  "error": null,
+  "results": {
+    "detectors": [
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "withdraw",
+            "source_mapping": {
+              "start": 166,
+              "length": 268,
+              "filename_relative": "contracts/Vulnerable.sol",
+              "filename_absolute": "C:/Users/aayus/OneDrive/Desktop/Projects/SmartContractScanner/contracts/Vulnerable.sol",
+              "filename_short": "contracts/Vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "Vulnerable",
+                "source_mapping": {
+                  "start": 57,
+                  "length": 469,
+                  "filename_relative": "contracts/Vulnerable.sol",
+                  "filename_absolute": "C:/Users/aayus/OneDrive/Desktop/Projects/SmartContractScanner/contracts/Vulnerable.sol",
+                  "filename_short": "contracts/Vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "withdraw()"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = msg.sender.call{value: amount}()",
+            "source_mapping": {
+              "start": 294,
+              "length": 53,
+              "filename_relative": "contracts/Vulnerable.sol",
+              "filename_absolute": "C:/Users/aayus/OneDrive/Desktop/Projects/SmartContractScanner/contracts/Vulnerable.sol",
+              "filename_short": "contracts/Vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                12
+              ],
+              "starting_column": 9,
+              "ending_column": 62
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdraw",
+                "source_mapping": {
+                  "start": 166,
+                  "length": 268,
+                  "filename_relative": "contracts/Vulnerable.sol",
+                  "filename_absolute": "C:/Users/aayus/OneDrive/Desktop/Projects/SmartContractScanner/contracts/Vulnerable.sol",
+                  "filename_short": "contracts/Vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "Vulnerable",
+                    "source_mapping": {
+                      "start": 57,
+                      "length": 469,
+                      "filename_relative": "contracts/Vulnerable.sol",
+                      "filename_absolute": "C:/Users/aayus/OneDrive/Desktop/Projects/SmartContractScanner/contracts/Vulnerable.sol",
+                      "filename_short": "contracts/Vulnerable.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdraw()"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "external_calls"
+            }
+          },
+          {
+            "type": "node",
+            "name": "balances[msg.sender] = 0",
+            "source_mapping": {
+              "start": 403,
+              "length": 24,
+              "filename_relative": "contracts/Vulnerable.sol",
+              "filename_absolute": "C:/Users/aayus/OneDrive/Desktop/Projects/SmartContractScanner/contracts/Vulnerable.sol",
+              "filename_short": "contracts/Vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                15
+              ],
+              "starting_column": 9,
+              "ending_column": 33
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdraw",
+                "source_mapping": {
+                  "start": 166,
+                  "length": 268,
+                  "filename_relative": "contracts/Vulnerable.sol",
+                  "filename_absolute": "C:/Users/aayus/OneDrive/Desktop/Projects/SmartContractScanner/contracts/Vulnerable.sol",
+                  "filename_short": "contracts/Vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "Vulnerable",
+                    "source_mapping": {
+                      "start": 57,
+                      "length": 469,
+                      "filename_relative": "contracts/Vulnerable.sol",
+                      "filename_absolute": "C:/Users/aayus/OneDrive/Desktop/Projects/SmartContractScanner/contracts/Vulnerable.sol",
+                      "filename_short": "contracts/Vulnerable.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdraw()"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "variables_written",
+              "variable_name": "balances"
+            }
+          }
+        ],
+        "description": "Reentrancy in Vulnerable.withdraw() (contracts/Vulnerable.sol#8-16):\n\tExternal calls:\n\t- (success,None) = msg.sender.call{value: amount}() (contracts/Vulnerable.sol#12)\n\tState variables written after the call(s):\n\t- balances[msg.sender] = 0 (contracts/Vulnerable.sol#15)\n\tVulnerable.balances (contracts/Vulnerable.sol#5) can be used in cross function reentrancies:\n\t- Vulnerable.balances (contracts/Vulnerable.sol#5)\n\t- Vulnerable.deposit() (contracts/Vulnerable.sol#18-20)\n\t- Vulnerable.withdraw() (contracts/Vulnerable.sol#8-16)\n",
+        "markdown": "Reentrancy in [Vulnerable.withdraw()](contracts/Vulnerable.sol#L8-L16):\n\tExternal calls:\n\t- [(success,None) = msg.sender.call{value: amount}()](contracts/Vulnerable.sol#L12)\n\tState variables written after the call(s):\n\t- [balances[msg.sender] = 0](contracts/Vulnerable.sol#L15)\n\t[Vulnerable.balances](contracts/Vulnerable.sol#L5) can be used in cross function reentrancies:\n\t- [Vulnerable.balances](contracts/Vulnerable.sol#L5)\n\t- [Vulnerable.deposit()](contracts/Vulnerable.sol#L18-L20)\n\t- [Vulnerable.withdraw()](contracts/Vulnerable.sol#L8-L16)\n",
+        "first_markdown_element": "contracts/Vulnerable.sol#L8-L16",
+        "id": "b7ebd9273d3bb733720c576e9f016c9c952140f2b1b8561d0fca04ff5bcf64a0",
+        "check": "reentrancy-eth",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1"
+      },
+      {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.8.0",
+            "source_mapping": {
+              "start": 32,
+              "length": 23,
+              "filename_relative": "contracts/Vulnerable.sol",
+              "filename_absolute": "C:/Users/aayus/OneDrive/Desktop/Projects/SmartContractScanner/contracts/Vulnerable.sol",
+              "filename_short": "contracts/Vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                2
+              ],
+              "starting_column": 1,
+              "ending_column": 24
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.8",
+                ".0"
+              ]
+            }
+          }
+        ],
+        "description": "Version constraint ^0.8.0 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- FullInlinerNonExpressionSplitArgumentEvaluationOrder\n\t- MissingSideEffectsOnSelectorAccess\n\t- AbiReencodingHeadOverflowWithStaticArrayCleanup\n\t- DirtyBytesArrayToStorage\n\t- DataLocationChangeInInternalOverride\n\t- NestedCalldataArrayAbiReencodingSizeValidation\n\t- SignedImmutables\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching.\nIt is used by:\n\t- ^0.8.0 (contracts/Vulnerable.sol#2)\n",
+        "markdown": "Version constraint ^0.8.0 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- FullInlinerNonExpressionSplitArgumentEvaluationOrder\n\t- MissingSideEffectsOnSelectorAccess\n\t- AbiReencodingHeadOverflowWithStaticArrayCleanup\n\t- DirtyBytesArrayToStorage\n\t- DataLocationChangeInInternalOverride\n\t- NestedCalldataArrayAbiReencodingSizeValidation\n\t- SignedImmutables\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching.\nIt is used by:\n\t- [^0.8.0](contracts/Vulnerable.sol#L2)\n",
+        "first_markdown_element": "contracts/Vulnerable.sol#L2",
+        "id": "a53169bb4362ea2c563650427727f2ae4eabb3b5159fc495b3801840ded50bcd",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "withdraw",
+            "source_mapping": {
+              "start": 166,
+              "length": 268,
+              "filename_relative": "contracts/Vulnerable.sol",
+              "filename_absolute": "C:/Users/aayus/OneDrive/Desktop/Projects/SmartContractScanner/contracts/Vulnerable.sol",
+              "filename_short": "contracts/Vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "Vulnerable",
+                "source_mapping": {
+                  "start": 57,
+                  "length": 469,
+                  "filename_relative": "contracts/Vulnerable.sol",
+                  "filename_absolute": "C:/Users/aayus/OneDrive/Desktop/Projects/SmartContractScanner/contracts/Vulnerable.sol",
+                  "filename_short": "contracts/Vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "withdraw()"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = msg.sender.call{value: amount}()",
+            "source_mapping": {
+              "start": 294,
+              "length": 53,
+              "filename_relative": "contracts/Vulnerable.sol",
+              "filename_absolute": "C:/Users/aayus/OneDrive/Desktop/Projects/SmartContractScanner/contracts/Vulnerable.sol",
+              "filename_short": "contracts/Vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                12
+              ],
+              "starting_column": 9,
+              "ending_column": 62
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdraw",
+                "source_mapping": {
+                  "start": 166,
+                  "length": 268,
+                  "filename_relative": "contracts/Vulnerable.sol",
+                  "filename_absolute": "C:/Users/aayus/OneDrive/Desktop/Projects/SmartContractScanner/contracts/Vulnerable.sol",
+                  "filename_short": "contracts/Vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "Vulnerable",
+                    "source_mapping": {
+                      "start": 57,
+                      "length": 469,
+                      "filename_relative": "contracts/Vulnerable.sol",
+                      "filename_absolute": "C:/Users/aayus/OneDrive/Desktop/Projects/SmartContractScanner/contracts/Vulnerable.sol",
+                      "filename_short": "contracts/Vulnerable.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdraw()"
+                }
+              }
+            }
+          }
+        ],
+        "description": "Low level call in Vulnerable.withdraw() (contracts/Vulnerable.sol#8-16):\n\t- (success,None) = msg.sender.call{value: amount}() (contracts/Vulnerable.sol#12)\n",
+        "markdown": "Low level call in [Vulnerable.withdraw()](contracts/Vulnerable.sol#L8-L16):\n\t- [(success,None) = msg.sender.call{value: amount}()](contracts/Vulnerable.sol#L12)\n",
+        "first_markdown_element": "contracts/Vulnerable.sol#L8-L16",
+        "id": "de16cffd1d045cfe63a3fc3d3496d56d8a8c87b7e4253c03fa670951a9c8477f",
+        "check": "low-level-calls",
+        "impact": "Informational",
+        "confidence": "High",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls"
+      }
+    ]
+  }
+}

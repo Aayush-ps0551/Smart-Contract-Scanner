@@ -52,20 +52,47 @@ if uploaded_file is not None:
                 success, output = run_slither(tmp_file_path)
                 
                 st.markdown("---")
-                if success:
-                    # Simple heuristic to check if Slither found issues 
-                    # (Slither usually outputs "Reference: https..." when it finds vulnerabilities)
-                    if "Reference:" in output or "issues" in output.lower() or "Reentrancy" in output:
-                        st.error("⚠️ **Vulnerabilities Detected!** Please review the report below.")
-                    else:
-                        st.success("✅ **Scan Passed!** No major vulnerabilities found by Slither.")
+                if success and isinstance(output, dict):
+                    if output.get('success'):
+                        detectors = output.get('results', {}).get('detectors', [])
                         
-                    st.markdown("### Detailed Scan Report")
-                    
-                    # Use an expander to keep the UI clean
-                    with st.expander("View Raw Slither Output", expanded=True):
-                        st.text(output)
+                        if not detectors:
+                            st.success("✅ **Scan Passed!** No vulnerabilities found by Slither.")
+                        else:
+                            st.error(f"⚠️ **Vulnerabilities Detected!** Found {len(detectors)} issues.")
+                            
+                            st.markdown("### 📊 Vulnerability Summary")
+                            
+                            # Count severities
+                            high = sum(1 for d in detectors if d.get('impact') == 'High')
+                            medium = sum(1 for d in detectors if d.get('impact') == 'Medium')
+                            low = sum(1 for d in detectors if d.get('impact') == 'Low')
+                            info = sum(1 for d in detectors if d.get('impact') == 'Informational')
+                            
+                            c1, c2, c3, c4 = st.columns(4)
+                            c1.metric("🔴 High Severity", high)
+                            c2.metric("🟠 Medium Severity", medium)
+                            c3.metric("🟡 Low Severity", low)
+                            c4.metric("🔵 Informational", info)
+                            
+                            st.markdown("### 📋 Detailed Findings")
+                            for idx, d in enumerate(detectors):
+                                impact = d.get('impact', 'Unknown')
+                                check_name = d.get('check', 'Unknown Check')
+                                
+                                # Emoji based on severity
+                                emoji = "🔴" if impact == "High" else "🟠" if impact == "Medium" else "🟡" if impact == "Low" else "🔵"
+                                
+                                with st.expander(f"{emoji} [{impact}] {check_name}"):
+                                    st.markdown(d.get('markdown', d.get('description', 'No description available.')))
+                                    st.caption(f"**Confidence:** {d.get('confidence', 'N/A')}")
+                                    if 'reference' in d:
+                                        st.markdown(f"[Learn more about this vulnerability]({d['reference']})")
+                    else:
+                        st.error("❌ Slither returned an error state.")
+                        st.text(output.get('error', 'Unknown Error'))
+
                 else:
-                    st.error("❌ Error running scan. Make sure Slither and solc are installed.")
+                    st.error("❌ Error running scan (Compilation failed). Please check your Solidity syntax.")
                     with st.expander("Error Details", expanded=True):
-                        st.text_area("Logs", output, height=200)
+                        st.text_area("Logs", output, height=300)
