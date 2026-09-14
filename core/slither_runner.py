@@ -10,6 +10,10 @@ def run_slither(file_path):
     output_data is a dictionary if JSON parsing succeeds, else a string.
     """
     try:
+        # Ensure solc 0.8.0 is installed and active (critical for Streamlit Cloud deployment)
+        subprocess.run(["solc-select", "install", "0.8.0"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["solc-select", "use", "0.8.0"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
         # Create a temporary file for JSON output
         with tempfile.NamedTemporaryFile(suffix=".json", delete=False) as f:
             json_out_path = f.name
