@@ -24,13 +24,36 @@ with st.sidebar:
 st.title("🛡️ Web3 Smart Contract Vulnerability Scanner")
 st.markdown("Upload your Solidity (`.sol`) file to instantly detect vulnerabilities such as **Re-entrancy**, **Integer Overflow**, and **Access Control** issues.")
 
-# File Uploader
-uploaded_file = st.file_uploader("Upload a Solidity File", type=["sol"])
+st.markdown("### Choose a Contract to Scan")
+input_method = st.radio("Select Input Method:", ["Upload your own file", "Try a sample dataset"], horizontal=True)
 
-if uploaded_file is not None:
-    # Save the uploaded file to a temporary location so Slither can read it
+file_content = None
+file_name = None
+
+if input_method == "Upload your own file":
+    uploaded_file = st.file_uploader("Upload a Solidity File", type=["sol"])
+    if uploaded_file is not None:
+        file_content = uploaded_file.getvalue()
+        file_name = uploaded_file.name
+else:
+    contracts_dir = "contracts"
+    if os.path.exists(contracts_dir):
+        sample_files = [f for f in os.listdir(contracts_dir) if f.endswith(".sol")]
+        if sample_files:
+            selected_sample = st.selectbox("Select a pre-existing vulnerable contract:", sample_files)
+            if selected_sample:
+                with open(os.path.join(contracts_dir, selected_sample), "r", encoding="utf-8") as f:
+                    file_content = f.read().encode("utf-8")
+                file_name = selected_sample
+        else:
+            st.warning("No sample files found in the 'contracts' folder.")
+    else:
+        st.warning("The 'contracts' folder does not exist.")
+
+if file_content is not None and file_name is not None:
+    # Save the file to a temporary location so Slither can read it
     with tempfile.NamedTemporaryFile(delete=False, suffix=".sol") as tmp_file:
-        tmp_file.write(uploaded_file.getvalue())
+        tmp_file.write(file_content)
         tmp_file_path = tmp_file.name
 
     # Create interactive layout tabs
@@ -38,10 +61,10 @@ if uploaded_file is not None:
     
     with tab2:
         st.markdown("### Contract Source Code")
-        st.code(uploaded_file.getvalue().decode("utf-8"), language="solidity")
+        st.code(file_content.decode("utf-8"), language="solidity")
 
     with tab1:
-        st.info(f"Ready to scan **{uploaded_file.name}**")
+        st.info(f"Ready to scan **{file_name}**")
         
         col1, col2, col3 = st.columns([1, 1, 2])
         with col1:
