@@ -33,9 +33,11 @@ def run_slither(file_path):
         subprocess.run(["solc-select", "install", version], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         subprocess.run(["solc-select", "use", version], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-        # 3. Create a temporary file for JSON output
+        # 3. Get a temporary file path for JSON output, but don't create it yet
+        # (Slither refuses to overwrite an existing JSON file)
         with tempfile.NamedTemporaryFile(suffix=".json", delete=False) as f:
             json_out_path = f.name
+        os.remove(json_out_path)
             
         # 4. Run Slither
         result = subprocess.run(
