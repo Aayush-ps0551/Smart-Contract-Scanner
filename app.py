@@ -6,37 +6,37 @@ from core.slither_runner import run_slither
 # Set up the page configuration and theme
 st.set_page_config(page_title="Web3 Vulnerability Scanner", page_icon="🛡️", layout="wide")
 
-# --- HACKER THEME CSS ---
+# --- SPACE THEME CSS ---
 st.markdown(
     """
     <style>
-    /* Matrix-style hacking background GIF */
+    /* Shooting stars background GIF */
     .stApp {
-        background-image: url("https://media.giphy.com/media/A0667Yg4dr3sQ/giphy.gif");
+        background-image: url("https://media.giphy.com/media/aBovVqWw0J3aI/giphy.gif");
         background-size: cover;
         background-attachment: fixed;
     }
     
     /* Transparent dark overlay for main content readability */
     .block-container {
-        background-color: rgba(0, 0, 0, 0.85);
+        background-color: rgba(10, 10, 25, 0.85);
         border-radius: 15px;
         padding: 2rem;
-        box-shadow: 0px 0px 20px rgba(0, 255, 65, 0.2);
-        border: 1px solid rgba(0, 255, 65, 0.2);
+        box-shadow: 0px 0px 20px rgba(0, 191, 255, 0.4);
+        border: 1px solid rgba(0, 191, 255, 0.3);
     }
 
-    /* Hacker green titles */
+    /* Cosmic Blue titles */
     h1, h2, h3 {
-        color: #00FF41 !important;
-        font-family: 'Courier New', Courier, monospace;
-        text-shadow: 0px 0px 5px #00FF41;
+        color: #00BFFF !important;
+        font-family: 'Helvetica Neue', sans-serif;
+        text-shadow: 0px 0px 10px rgba(0, 191, 255, 0.8);
     }
     
     /* Transparent Sidebar */
     section[data-testid="stSidebar"] {
-        background-color: rgba(0, 0, 0, 0.85) !important;
-        border-right: 1px solid rgba(0, 255, 65, 0.2);
+        background-color: rgba(10, 10, 25, 0.85) !important;
+        border-right: 1px solid rgba(0, 191, 255, 0.3);
     }
     </style>
     """,
