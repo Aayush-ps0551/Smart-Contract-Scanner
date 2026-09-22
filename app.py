@@ -11,10 +11,15 @@ st.markdown(
     """
     <style>
     /* Shooting stars background GIF */
-    .stApp {
+    [data-testid="stAppViewContainer"] {
         background-image: url("https://media.giphy.com/media/aBovVqWw0J3aI/giphy.gif");
         background-size: cover;
         background-attachment: fixed;
+    }
+    
+    /* Make the top header transparent */
+    [data-testid="stHeader"] {
+        background-color: transparent !important;
     }
     
     /* Transparent dark overlay for main content readability */
