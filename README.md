@@ -1,5 +1,7 @@
 # 🛡️ Web3 Smart Contract Vulnerability Scanner
 
+**🚀 Live Demo:** *[Link to be added]*
+
 An automated, interactive UI wrapper for industry-standard smart contract security tools (like Slither). This tool helps Web3 developers find flaws in their Solidity code (e.g., Re-entrancy, Integer Overflow, Access Control) before deployment.
 
 ## 🏗 Architecture & Folder Structure
